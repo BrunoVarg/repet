@@ -5,6 +5,8 @@ import SecondaryText from '../../components/SecondaryText';
 import PrimaryText from '../../components/PrimaryText';
 import CardUser from '../../components/CardUser';
 import Button from '../../components/Button';
+import Card from '../../components/Card';
+import Modal from '../../components/Modal';
 
 import { ContainerCard, ContainerPage, InfoGroup } from './styles';
 
@@ -13,13 +15,31 @@ import { toast } from 'react-toastify';
 import { useAuth } from '../../context/authContext';
 
 import dayjs from 'dayjs';
-import Card from '../../components/Card';
 
 const Profile = () => {
   const { userId, logout } = useAuth() || {};
 
   const [user, setUser] = useState<User | undefined>();
   const [loading, setLoading] = useState<boolean>(true);
+
+  const [openModalExit, setOpenModalExit] = useState<boolean>(false);
+
+  const handleOpenModalExit = () => {
+    setOpenModalExit(true);
+  };
+
+  const handleCloseModalExit = () => {
+    setOpenModalExit(false);
+  };
+
+  const handleExit = () => {
+    if (logout) {
+      logout();
+      toast.success('Você saiu da sua conta.');
+    } else {
+      toast.error('Erro ao sair da conta.');
+    }
+  };
 
   const [birthdate, setBirthdate] = useState<string>(
     dayjs().format('DD/MM/YYYY'),
@@ -96,13 +116,17 @@ const Profile = () => {
           </ContainerCard>
         </Card>
 
-        <Button name="SAIR" color="red" onClick={() => {
-          if (logout) {
-            logout();
-            toast.success('Você saiu da sua conta.');
-          }
-        }} />
+        <Button name="SAIR" color="red" onClick={() => handleOpenModalExit()} />
       </ContainerPage>
+
+      {openModalExit && (
+        <Modal
+          title={`Deseja sair da sua conta?`}
+          handleClose={handleCloseModalExit}
+        >
+          <Button name="SAIR" onClick={() => handleExit()} color="red" />
+        </Modal>
+      )}
     </Page>
   );
 };
