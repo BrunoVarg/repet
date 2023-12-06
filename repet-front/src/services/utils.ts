@@ -29,7 +29,7 @@ export const registerServiceWorker = async () => {
 
 export const saveSubscription = async (subscription: any, userId: number) => {
   // const apiUrl = 'http://localhost:4001';
-  const apiUrl = 'https://repet-notification.vercel.app';
+  const apiUrl = 'https://repet-notification-service.onrender.com';
 
   const SERVER_URL = `${apiUrl}/subscription`;
 
