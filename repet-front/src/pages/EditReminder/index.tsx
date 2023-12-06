@@ -50,7 +50,7 @@ const EditReminder = () => {
       return;
     }
 
-    if (time !== '' && !formattedTime.isValid()) {
+    if (!formattedTime.isValid()) {
       toast.error('O horário informado é inválido.');
       return;
     }
@@ -168,6 +168,7 @@ const EditReminder = () => {
             setTime(formatTime(value));
           }}
           placeholder="HH:MM"
+          required
         />
 
         <Button

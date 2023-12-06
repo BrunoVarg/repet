@@ -46,7 +46,7 @@ const CreateReminder = () => {
       return;
     }
 
-    if (time !== '' && !formattedTime.isValid()) {
+    if (!formattedTime.isValid()) {
       toast.error('O horário informado é inválido.');
       return;
     }
@@ -140,6 +140,7 @@ const CreateReminder = () => {
             setTime(formatTime(value));
           }}
           placeholder="HH:MM"
+          required
         />
 
         <Button

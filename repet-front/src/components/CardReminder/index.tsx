@@ -60,6 +60,8 @@ const CardReminder = ({
   };
 
   const handleDelete = async () => {
+    setLoading(true);
+
     await api
       .delete(`/reminders/${reminder.id}/`)
       .then(() => {

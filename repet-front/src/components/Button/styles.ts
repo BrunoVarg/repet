@@ -30,8 +30,10 @@ export const ContainerButton = styled.button<ContainerButtonProps>`
   &:hover {
     background: ${props =>
       props.color === 'blue'
-        ? config.colors.secondaryBlue
-        : config.colors.secondaryRed};
+      ? config.colors.secondaryBlue
+      : props.color === 'green'
+      ? config.colors.secondaryGreen
+      : config.colors.secondaryRed};
     opacity: 1;
     transform: translateY(0);
     transition-duration: 0.35s;

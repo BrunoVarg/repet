@@ -52,7 +52,7 @@ const CreateRecord = () => {
       return;
     }
 
-    if (time !== '' && !formattedTime.isValid()) {
+    if (!formattedTime.isValid()) {
       toast.error('O horário informado é inválido.');
       return;
     }
@@ -98,7 +98,7 @@ const CreateRecord = () => {
       return;
     }
 
-    if (time !== '' && !formattedTime.isValid()) {
+    if (!formattedTime.isValid()) {
       toast.error('O horário informado é inválido.');
       return;
     }
@@ -209,6 +209,7 @@ const CreateRecord = () => {
             setTime(formatTime(value));
           }}
           placeholder="HH:MM"
+          required
         />
 
         <Checkbox

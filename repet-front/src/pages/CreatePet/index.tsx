@@ -53,6 +53,11 @@ const CreatePet = () => {
       return;
     }
 
+    if (weight === '') {
+      toast.error('O peso é obrigatório.');
+      return;
+    }
+
     const date = dayjs(birthdate, 'DD/MM/YYYY');
 
     if (!date.isValid()) {
@@ -128,6 +133,7 @@ const CreatePet = () => {
           }}
           type="number"
           placeholder="3 kg"
+          required
         />
 
         <br />
