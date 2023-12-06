@@ -1,27 +1,19 @@
 import styled from 'styled-components';
 
-export const SettingsContainer = styled.div`
-  font-family: 'Lexend', sans-serif;
+export const ContainerItems = styled.div`
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
-  height: 100vh;
-  padding-top: 40px;
+  gap: 12px;
 `;
 
-export const Title = styled.h1`
-  font-weight: bold;
-  margin-bottom: 40px;
+export const ContainerSettingItem = styled.div`
+  width: 100%;
+  max-width: 1024px;
 `;
 
 export const SettingItem = styled.div`
   display: flex;
   align-items: center;
-  justify-content: start;
-  margin-bottom: 12px;
-  width: 100%;
-  padding-left: 42%;
 `;
 
 export const SettingLabel = styled.label`
