@@ -36,7 +36,8 @@ class Pet(models.Model):
               ('Ave', 'Ave'),
               ('Reptil', 'Réptil'),
               ('Peixe', 'Peixe'),
-              ('Outros', 'Outros')]
+              ('Outro', 'Outro')]
+    
     type = models.CharField(max_length=8, choices=typers, verbose_name='Tipo', default="")
 
     birthdate = models.DateField(verbose_name='Aniversário', blank=True, null=True)
